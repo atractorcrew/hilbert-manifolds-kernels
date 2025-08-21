@@ -1,0 +1,36 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+
+# Archivos de presentaciones (Beamer)
+*.nav
+*.snm
+*.vrb
+
+# Directorios de compilación
+latex.out/
+build/
+
+# Archivos temporales o de backup
+*~
+*.bak
+*.tmp

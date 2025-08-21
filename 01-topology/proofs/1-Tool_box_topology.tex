@@ -1,0 +1,239 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{array}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{8pt}
+
+% Columna cómoda para texto en p{} con cortes de línea seguros
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{Caja de Herramientas: Espacios Métricos e Inequidades}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Resumen}
+
+\begin{tabular}{|L{4.3cm}|L{11.5cm}|}
+\hline
+\textbf{Espacio métrico} &
+Un par \((X,d)\) donde \(d:X\times X\to\mathbb{R}_{\ge 0}\) cumple:
+(i) \(d(x,y)=0\iff x=y\),
+(ii) \(d(x,y)=d(y,x)\),
+(iii) \textbf{desigualdad triangular} \(d(x,z)\le d(x,y)+d(y,z)\).
+\\
+\hline
+
+\textbf{Bolas y topología} &
+\textit{Bola abierta}: \(B(x,r)=\{y:\ d(x,y)<r\}\).
+\; \textit{Bola cerrada}: \(\overline{B}(x,r)=\{y:\ d(x,y)\le r\}\).
+\; Los abiertos son uniones de bolas abiertas.
+\\
+\hline
+
+\textbf{Cierre / interior / frontera} &
+\(x\in\overline{A}\iff \forall r>0,\ B(x,r)\cap A\neq\varnothing\).
+\; \(\operatorname{int}(A)=\{x:\ \exists r>0,\ B(x,r)\subset A\}\).
+\; \(\partial A=\overline{A}\setminus \operatorname{int}(A)\).
+\\
+\hline
+
+\textbf{Convergencia} &
+\(x_n\to x \iff \forall\varepsilon>0\ \exists N\ \forall n\ge N:\ d(x_n,x)<\varepsilon\).
+\; \textbf{Caracterización de cierre}: \(\overline{A}=\{x:\ \exists (a_n)\subset A,\ a_n\to x\}\).
+\\
+\hline
+
+\textbf{Continuidad} &
+\(f:(X,d_X)\to(Y,d_Y)\) es continua en \(x_0\) si
+\(\forall\varepsilon>0\ \exists\delta>0:\ d_X(x,x_0)<\delta\Rightarrow d_Y(f(x),f(x_0))<\varepsilon\).
+\; Equivalente: \(x_n\to x\Rightarrow f(x_n)\to f(x)\).
+\\
+\hline
+
+\textbf{Ineq. triangular (básica)} &
+\(d(x,z)\le d(x,y)+d(y,z)\) (toda métrica).
+\; \textbf{Iterada}: \(d(x_0,x_n)\le \sum_{k=1}^n d(x_{k-1},x_k)\).
+\\
+\hline
+
+\textbf{Ineq. triangular inversa} &
+\(\lvert d(x,z)-d(y,z)\rvert\le d(x,y)\) (toda métrica).
+\; Consecuencia: \(\lvert d(x,A)-d(y,A)\rvert\le d(x,y)\).
+\\
+\hline
+
+\textbf{Distancia a un conjunto} &
+\(d(x,A):=\inf\{d(x,a):a\in A\}\) (convención \(d(x,\varnothing)=+\infty\)).
+\par
+Propiedades clave:
+\begin{itemize}
+\item \(0\le d(x,A)\le d(x,a)\) para todo \(a\in A\).
+\item \(d(x,A)=0\iff x\in\overline{A}\).
+\item \textbf{1-Lipschitz}: \(|d(x,A)-d(y,A)|\le d(x,y)\).
+\item Si \(A\) es cerrado y \(d(x,A)>0\), entonces \(B(x,d(x,A))\cap A=\varnothing\).
+\end{itemize}
+\\
+\hline
+
+\textbf{Diámetro} &
+\(\operatorname{diam}(A):=\sup\{d(x,y):x,y\in A\}\).
+\; Si \(A\subset B\), entonces \(\operatorname{diam}(A)\le \operatorname{diam}(B)\).
+\; Si \(f\) es \(L\)-Lipschitz, \(\operatorname{diam}(f(A))\le L\,\operatorname{diam}(A)\).
+\\
+\hline
+
+\textbf{Aplicaciones Lipschitz} &
+\(f\) es \(L\)-Lipschitz si \(d_Y(f(x),f(y))\le L\,d_X(x,y)\).
+\; Si \(L<1\) (contracción) \(\Rightarrow\) punto fijo de Banach (en completos).
+\\
+\hline
+
+\textbf{Secuencias de Cauchy} &
+\((x_n)\) es Cauchy si \(\forall\varepsilon>0\ \exists N:\ m,n\ge N\Rightarrow d(x_m,x_n)<\varepsilon\).
+\; Toda convergente es Cauchy; en espacios \textbf{completos}, toda Cauchy converge.
+\\
+\hline
+
+\textbf{Compacidad (métricos)} &
+En métricos: \textit{compacto} \(\Leftrightarrow\) \textit{secuencialmente compacto} \(\Leftrightarrow\) \textit{totalmente acotado + completo}.
+\; Totalmente acotado: para todo \(\varepsilon>0\) existe recubrimiento finito por bolas de radio \(\varepsilon\).
+\\
+\hline
+
+\textbf{Métricas producto} &
+Si \(d_i\) son métricas en \(X_i\), en \(X_1\times X_2\):
+\(\ d_{\max}((x_1,x_2),(y_1,y_2))=\max\{d_1(x_1,y_1),d_2(x_2,y_2)\}\),
+\(\ d_{1}((x_1,x_2),(y_1,y_2))= d_1(x_1,y_1)+d_2(x_2,y_2)\).
+\; Ambas inducen la topología producto.
+\\
+\hline
+
+\textbf{Métricas inducidas por norma} &
+Si \(\|\cdot\|\) es norma, \(d(x,y)=\|x-y\|\) es métrica.
+\; \textbf{Minkowski}: \(\|x+y\|\le \|x\|+\|y\|\).
+\; \textbf{Triangular inversa}: \(\lvert\|x\|-\|y\|\rvert\le \|x-y\|\).
+\; En espacios con producto interno: \(\lvert\langle x,y\rangle\rvert\le \|x\|\,\|y\|\) (Cauchy–Schwarz).
+\\
+\hline
+
+\textbf{Ineq. con bolas} &
+Si \(y\in B(x,r)\), entonces \(B(y,\rho)\subset B(x,r+\rho)\).
+\; Si \(B(x,r)\cap B(y,s)=\varnothing\), entonces \(d(x,y)\ge r+s\).
+\; Si \(z\in B(x,r)\cap B(y,s)\), entonces \(d(x,y)\le r+s\).
+\\
+\hline
+
+\textbf{Separación por cerrados} &
+Si \(A\) es cerrado y \(x\notin A\), entonces \(d(x,A)>0\) y
+\(B(x,\tfrac12 d(x,A))\cap A=\varnothing\).
+\\
+\hline
+
+\textbf{Distancia entre conjuntos} &
+\(d(A,B):=\inf\{d(a,b):a\in A,b\in B\}\).
+\; Si \(A,B\) cerrados, disjuntos, y uno compacto \(\Rightarrow d(A,B)>0\).
+\\
+\hline
+
+\textbf{Contradicciones típicas} &
+\textit{Estrategia}: suponer \(x\in \operatorname{int}(A)\) y construir \(r>0\) con \(B(x,r)\not\subset A\).
+\; O suponer \(x\notin\overline{A}\) y construir \(r>0\) con \(B(x,r)\cap A=\varnothing\).
+\; Usar siempre triangular e inversa.
+\\
+\hline
+\end{tabular}
+
+\section*{Caja de Herramientas Topológicas}
+
+\subsection*{Definiciones clave}
+\begin{itemize}
+    \item \textbf{Vecindario:} $V$ es vecindario de $x$ si existe un abierto $U$ con $x \in U \subseteq V$.
+    \item \textbf{Punto límite:} $x$ es punto límite de $A$ si 
+    \[
+    \forall U \text{ abierto con } x \in U, \quad (U \setminus \{x\}) \cap A \neq \varnothing.
+    \]
+    \item \textbf{Clausura:} $\overline{A} = A \cup A'$ (conjunto más todos sus puntos límite).
+    \item \textbf{Interior:} 
+    \[
+    \operatorname{int}(A) = \{x \in A : \exists U \text{ abierto}, \ x \in U \subseteq A\}.
+    \]
+    \item \textbf{Frontera:} 
+    \[
+    \partial A = \overline{A} \cap \overline{X \setminus A}.
+    \]
+\end{itemize}
+
+\subsection*{Propiedades de la clausura}
+\begin{itemize}
+    \item Extensividad: $A \subseteq \overline{A}$.
+    \item Idempotencia: $\overline{\overline{A}} = \overline{A}$.
+    \item Monotonía: $A \subseteq B \implies \overline{A} \subseteq \overline{B}$.
+    \item Cerrado mínimo: $\overline{A}$ es el menor cerrado que contiene a $A$.
+    \item Intersección: $\overline{A \cap B} \subseteq \overline{A} \cap \overline{B}$.
+    \item Diferencia: $\overline{A \setminus B} \subseteq \overline{A} \setminus \operatorname{int}(B)$.
+\end{itemize}
+
+\subsection*{Propiedades del interior}
+\begin{itemize}
+    \item Contractividad: $\operatorname{int}(A) \subseteq A$.
+    \item Idempotencia: $\operatorname{int}(\operatorname{int}(A)) = \operatorname{int}(A)$.
+    \item Monotonía: $A \subseteq B \implies \operatorname{int}(A) \subseteq \operatorname{int}(B)$.
+    \item Abierto máximo: $\operatorname{int}(A)$ es el mayor abierto contenido en $A$.
+    \item Unión: $\operatorname{int}(A \cup B) = \operatorname{int}(A) \cup \operatorname{int}(B)$.
+\end{itemize}
+
+\subsection*{Relaciones importantes}
+\begin{itemize}
+    \item $\partial A = \overline{A} \cap \overline{X \setminus A}$.
+    \item $\overline{A} = \operatorname{int}(A) \cup \partial A$.
+    \item $\operatorname{int}(A) = A \setminus \partial A$.
+    \item $\partial A = \overline{A} \setminus \operatorname{int}(A)$.
+\end{itemize}
+
+\section*{Checklist para demostraciones}
+
+\subsection*{Probar que un conjunto es cerrado}
+\begin{enumerate}
+    \item Usar la definición: $A$ es cerrado si contiene todos sus puntos límite o si $\overline{A} = A$.
+    \item Tomar un punto límite $x$ de $A$.
+    \item Mostrar que $x \in A$.
+    \item Concluir: $A$ es cerrado.
+\end{enumerate}
+
+\subsection*{Probar que un conjunto es abierto}
+\begin{enumerate}
+    \item Definición: $U$ es abierto si $\forall x \in U, \exists V$ abierto con $x \in V \subseteq U$.
+    \item Tomar $x \in U$.
+    \item Construir un vecindario abierto dentro de $U$.
+    \item Concluir: $U$ es abierto.
+\end{enumerate}
+
+\subsection*{Trabajar con clausura}
+\begin{enumerate}
+    \item Recordar: $\overline{A}$ es el menor cerrado que contiene a $A$.
+    \item Para inclusiones: tomar $x \in \overline{A \cap B}$ y usar vecindarios.
+    \item Deducir que $x \in \overline{A} \cap \overline{B}$.
+\end{enumerate}
+
+\subsection*{Trabajar con interior}
+\begin{enumerate}
+    \item Tomar $x \in \operatorname{int}(A)$.
+    \item Usar que $\exists U$ abierto con $x \in U \subseteq A$.
+    \item Encadenar inclusiones según el objetivo.
+\end{enumerate}
+
+\subsection*{Trabajar con frontera}
+\begin{enumerate}
+    \item Tomar $x \in \partial A$.
+    \item Usar: todo abierto $U \ni x$ toca $A$ y $X \setminus A$.
+    \item Concluir: $x \in \overline{A} \cap \overline{X \setminus A}$.
+\end{enumerate}
+
+\end{document}
+
+
+\end{document}
